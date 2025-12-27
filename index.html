@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
   <title>Flagz Store – Reliable Discord Services & Customization</title>
-  <meta name="description" content="Flagz Store offers professional Discord Tools, Discord server customization, automation, setups, and reliable online services. Trusted Discord tools provider." />
-  <meta name="keywords" content="Discord Tools, Discord services, Discord server setup, Discord automation, Discord customization, online Discord tools" />
+  <meta name="description" content="Flagz Store offers professional Discord Tools, Discord server customization, automation, setups, and reliable online services." />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -16,69 +14,230 @@
     body { background:#000; color:#fff; overflow-x:hidden; }
 
     /* Loader */
-    #loader { position:fixed; inset:0; background:#000; display:flex; align-items:center; justify-content:center; z-index:9999; }
-    .spinner { width:46px; height:46px; border:3px solid #222; border-top:3px solid #fff; border-radius:50%; animation:spin 1s linear infinite; }
+    #loader {
+      position:fixed; inset:0; background:#000;
+      display:flex; align-items:center; justify-content:center;
+      z-index:9999;
+    }
+    .spinner {
+      width:46px; height:46px;
+      border:3px solid #222;
+      border-top:3px solid #fff;
+      border-radius:50%;
+      animation:spin 1s linear infinite;
+    }
     @keyframes spin { to { transform:rotate(360deg); } }
 
-    /* Disable loader on mobile */
-    @media (max-width: 768px) {
-      #loader { display:none !important; }
-    }
+    @media (max-width:768px){ #loader{display:none!important;} }
 
     body::before {
-      content:''; position:fixed; inset:0;
-      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 40%),
-                  radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03), transparent 40%);
-      animation: floatBg 12s ease-in-out infinite alternate;
+      content:'';
+      position:fixed; inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03), transparent 40%);
+      animation:floatBg 12s ease-in-out infinite alternate;
       z-index:-1;
     }
     @keyframes floatBg { from{transform:scale(1);} to{transform:scale(1.08);} }
 
+    /* NAV */
     nav {
-      position:fixed; top:0; width:100%; z-index:1000;
-      background:rgba(0,0,0,0.7); backdrop-filter: blur(10px);
+      position:fixed; top:0; width:100%;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
       border-bottom:1px solid #111;
+      z-index:1000;
     }
 
-    .nav-inner { max-width:1200px; margin:auto; padding:18px 20px; display:flex; align-items:center; justify-content:space-between; }
-    .brand { font-weight:700; font-size:1.1rem; }
-    .nav-links { display:flex; gap:25px; }
-    .nav-links a { color:#aaa; text-decoration:none; font-size:0.95rem; transition:color .3s; }
-    .nav-links a:hover { color:#fff; }
-    .support { font-size:0.85rem; color:#777; }
+    .nav-inner {
+      max-width:1200px;
+      margin:auto;
+      padding:18px 20px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+    }
 
-    header { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 20px 60px; }
+    .brand { font-weight:700; }
+    .nav-links { display:flex; gap:30px; justify-self:center; }
+    .nav-links a {
+      color:#aaa;
+      text-decoration:none;
+      font-size:.95rem;
+      position:relative;
+      transition:color .3s;
+    }
+    .nav-links a:hover { color:#fff; }
+    .nav-links a::after {
+      content:'';
+      position:absolute;
+      left:0; bottom:-6px;
+      width:0%; height:2px;
+      background:#fff;
+      transition:width .3s ease;
+    }
+    .nav-links a:hover::after { width:100%; }
+
+    .support { justify-self:end; font-size:.85rem; color:#777; }
+
+    /* HEADER */
+    header {
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:120px 20px 60px;
+    }
 
     h1 { font-size:3.1rem; font-weight:700; }
     h2 { font-size:2.2rem; margin-bottom:10px; }
     p { color:#aaa; max-width:760px; margin:15px auto; line-height:1.7; }
 
-    .buttons { margin-top:35px; display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
-    .btn { padding:14px 32px; border-radius:10px; background:#fff; color:#000; font-weight:600; text-decoration:none; transition:all .3s ease; }
-    .btn.alt { background:transparent; color:#fff; border:1px solid #333; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(255,255,255,0.15); }
+    /* BUTTONS */
+    .buttons {
+      margin-top:35px;
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
 
+    .btn {
+      position:relative;
+      padding:14px 34px;
+      border-radius:12px;
+      background:#fff;
+      color:#000;
+      font-weight:600;
+      text-decoration:none;
+      overflow:hidden;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .btn.alt {
+      background:transparent;
+      color:#fff;
+      border:1px solid #333;
+    }
+
+    .btn:hover {
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 15px 40px rgba(255,255,255,0.25);
+    }
+
+    .btn:active {
+      transform:scale(.97);
+    }
+
+    /* Ripple */
+    .ripple {
+      position:absolute;
+      border-radius:50%;
+      transform:scale(0);
+      animation:ripple 600ms linear;
+      background:rgba(255,255,255,0.6);
+      pointer-events:none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform:scale(4);
+        opacity:0;
+      }
+    }
+
+    /* SECTIONS */
     section { padding:100px 20px; text-align:center; }
 
-    .grid { max-width:1100px; margin:50px auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .grid {
+      max-width:1100px;
+      margin:50px auto 0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
 
-    .card { background:#0b0b0b; border:1px solid #111; border-radius:16px; padding:35px; transition:all .45s ease; }
-    .card:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 25px 50px rgba(0,0,0,0.6); }
+    .card {
+      background:#0b0b0b;
+      border:1px solid #111;
+      border-radius:16px;
+      padding:35px;
+      transition:all .45s ease;
+    }
+    .card:hover {
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 25px 50px rgba(0,0,0,0.6);
+    }
 
-    .stats { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:40px; }
+    .stats {
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+
     .stat { font-size:1.5rem; font-weight:700; }
-    .stat span { display:block; font-size:.85rem; color:#777; font-weight:400; }
+    .stat span { display:block; font-size:.85rem; color:#777; }
 
-    .reviews { max-width:1000px; margin:40px auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; }
-    .review { background:#0b0b0b; border-radius:14px; padding:30px; border:1px solid #111; }
+    .reviews {
+      max-width:1000px;
+      margin:40px auto 0;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
 
-    footer { padding:40px 20px; text-align:center; color:#666; border-top:1px solid #111; }
+    .review {
+      background:#0b0b0b;
+      border-radius:14px;
+      padding:30px;
+      border:1px solid #111;
+    }
 
-    /* enhanced reveal animations */
-    .reveal { opacity:0; transform:translateY(60px); transition:all .9s cubic-bezier(.22,.61,.36,1); }
-    .reveal.active { opacity:1; transform:none; }
-    .reveal.fade { transform:none; opacity:0; }
-    .reveal.fade.active { opacity:1; }
+    /* CREDITS */
+    .credits {
+      display:flex;
+      justify-content:center;
+      gap:60px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+
+    .credit {
+      background:#0b0b0b;
+      border:1px solid #111;
+      border-radius:16px;
+      padding:30px;
+      width:240px;
+    }
+
+    .credit img {
+      width:90px;
+      height:90px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:15px;
+    }
+
+    footer {
+      padding:40px 20px;
+      text-align:center;
+      color:#666;
+      border-top:1px solid #111;
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(60px);
+      transition:all .9s cubic-bezier(.22,.61,.36,1);
+    }
+    .reveal.active {
+      opacity:1;
+      transform:none;
+    }
   </style>
 </head>
 <body>
@@ -92,6 +251,7 @@
       <a href="#home">Home</a>
       <a href="#services">Services</a>
       <a href="#reviews">Reviews</a>
+      <a href="#credits">Credits</a>
       <a href="#legal">Legal</a>
     </div>
     <div class="support">Support: defnotziu@proton.me</div>
@@ -101,87 +261,87 @@
 <header id="home" class="reveal">
   <div>
     <h1>Reliable Discord Services, Done Right</h1>
-    <p>Professional Discord Tools, customization, server boosts, automation, and online solutions trusted by growing communities.</p>
+    <p>Professional Discord tools, automation, and customization trusted by growing communities.</p>
     <div class="buttons">
-      <a href="https://flagz.mysellauth.com/" target="_blank" class="btn">Purchase Services</a>
-      <a href="https://discord.gg/6flagz" target="_blank" class="btn alt">Join Discord</a>
-      <a href="https://t.me/flagzshop" target="_blank" class="btn alt">Join Telegram</a>
+      <a class="btn" href="">Purchase Services</a>
+      <a class="btn alt" href="discord.gg/6flagz">Join Discord</a>
+      <a class="btn alt" href="https://t.me/flagzshop">Join Telegram</a>
     </div>
   </div>
 </header>
 
 <section id="services" class="reveal">
   <h2>Why Choose Flagz Store</h2>
-  <p>Built for quality, reliability, and long-term support.</p>
   <div class="grid">
-    <div class="card"><h3>Professional Quality</h3><p>Clean, scalable Discord servers tailored to your brand and community needs.</p></div>
-    <div class="card"><h3>Fast & Reliable</h3><p>Quick delivery times without sacrificing quality or stability.</p></div>
-    <div class="card"><h3>Secure Payments</h3><p>Trusted checkout with safe and verified payment processing.</p></div>
-    <div class="card"><h3>Custom Solutions</h3><p>Automation, roles, permissions, branding, and advanced server features.</p></div>
+    <div class="card"><h3>Professional Quality</h3><p>Clean scalable setups.</p></div>
+    <div class="card"><h3>Fast Delivery</h3><p>Quick turnaround times.</p></div>
+    <div class="card"><h3>Secure Payments</h3><p>Trusted checkout.</p></div>
+    <div class="card"><h3>Custom Solutions</h3><p>Advanced automation.</p></div>
   </div>
 </section>
 
 <section id="reviews" class="reveal">
   <h2>Trusted by Clients</h2>
   <div class="stats">
-    <div class="stat">100+<span>Orders Completed</span></div>
-    <div class="stat">99%<span>Satisfaction Rate</span></div>
+    <div class="stat">100+<span>Orders</span></div>
+    <div class="stat">99%<span>Satisfaction</span></div>
     <div class="stat">24/7<span>Support</span></div>
   </div>
-  <div class="reviews">
-    <div class="review"><strong>★★★★★ Client Review</strong><p>"Very clean server setup and fast delivery."</p></div>
-    <div class="review"><strong>★★★★★ Client Review</strong><p>"Professional work and reliable communication."</p></div>
-    <div class="review"><strong>★★★★★ Client Review</strong><p>"Exactly what our Discord needed."</p></div>
+</section>
+
+<section id="credits" class="reveal">
+  <h2>Credits</h2>
+  <div class="credits">
+    <div class="credit">
+      <img src="https://i.pinimg.com/736x/18/ec/97/18ec9722c68ed9dfd016cc4a804f595f.jpg" alt="Dev">
+      <h3>Owner - Made this websiter</h3>
+      <p>Seth</p>
+    </div>
+    <div class="credit">
+      <img src="https://i.pinimg.com/1200x/e7/b7/bb/e7b7bba56200a0e523402d527e3bc8ea.jpg" alt="Owner">
+      <h3>CEO</h3>
+      <p>6Flagz</p>
+    </div>
   </div>
 </section>
 
 <section id="legal" class="reveal">
   <h2>Legal Information</h2>
-  <p>
-    All services and products offered by Flagz Store are original, custom-created, and provided for legitimate use.
-    We do not distribute copyrighted material, pirated software, or third-party intellectual property.
-  </p>
-  <p>
-    Flagz Store operates independently and is not affiliated with Discord Inc. or any third-party platform.
-    By purchasing our services, you agree that all work delivered is for lawful and compliant usage.
-  </p>
+  <p>Flagz Store is not affiliated with Discord Inc. All services are original and compliant.</p>
 </section>
 
 <footer>
-  <p>© 2025 Flagz Store. All services are original and compliant. Contact: defnotziu@proton.me</p>
+  © 2025 Flagz Store — Developer: Seth | Owner: 6Flagz
 </footer>
 
 <script>
-  // Hide loader after 2.5s max (desktop only)
+  // Loader
   if (window.innerWidth > 768) {
-    setTimeout(() => {
-      const loader = document.getElementById('loader');
-      if (loader) loader.style.display = 'none';
-    }, 2500);
+    setTimeout(()=>{document.getElementById('loader').style.display='none'},2500);
   }
+  window.addEventListener('load',()=>{document.getElementById('loader').style.display='none'});
 
-  window.addEventListener('load', () => {
-    const loader = document.getElementById('loader');
-    if (loader) loader.style.display = 'none';
-  });
+  // Reveal
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>x.isIntersecting&&x.target.classList.add('active'));
+  },{threshold:.15});
+  reveals.forEach(r=>obs.observe(r));
 
-  // Scroll animations with stagger
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        if (entry.target.classList.contains('grid')) {
-          [...entry.target.children].forEach((el, i) => {
-            el.style.transitionDelay = `${i * 120}ms`;
-            el.classList.add('active');
-          });
-        }
-      }
+  // Ripple effect
+  document.querySelectorAll('.btn').forEach(btn=>{
+    btn.addEventListener('click',e=>{
+      const circle=document.createElement('span');
+      const diameter=Math.max(btn.clientWidth,btn.clientHeight);
+      const radius=diameter/2;
+      circle.style.width=circle.style.height=`${diameter}px`;
+      circle.style.left=`${e.clientX-btn.getBoundingClientRect().left-radius}px`;
+      circle.style.top=`${e.clientY-btn.getBoundingClientRect().top-radius}px`;
+      circle.classList.add('ripple');
+      btn.appendChild(circle);
+      setTimeout(()=>circle.remove(),600);
     });
-  }, { threshold:0.15 });
-
-  reveals.forEach(r => observer.observe(r));
+  });
 </script>
 
 </body>
