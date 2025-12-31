@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Flagz Store – Reliable Discord Services</title>
-<meta name="description" content="Professional Discord tools, automation, and customization trusted by growing communities.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -18,13 +17,7 @@
   --glow:rgba(255,255,255,.15);
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
 html { scroll-behavior:smooth; }
 
 body {
@@ -33,7 +26,7 @@ body {
   overflow-x:hidden;
 }
 
-/* AMBIENT BACKGROUND */
+/* BACKGROUND */
 body::before {
   content:'';
   position:fixed;
@@ -44,9 +37,7 @@ body::before {
   animation:ambient 18s ease-in-out infinite alternate;
   z-index:-1;
 }
-@keyframes ambient {
-  to { transform:scale(1.08); }
-}
+@keyframes ambient { to { transform:scale(1.08); } }
 
 /* LOADER */
 #loader {
@@ -59,8 +50,7 @@ body::before {
   z-index:9999;
 }
 .spinner {
-  width:44px;
-  height:44px;
+  width:44px; height:44px;
   border:3px solid #222;
   border-top:3px solid #fff;
   border-radius:50%;
@@ -71,8 +61,7 @@ body::before {
 /* NAV */
 nav {
   position:fixed;
-  top:0;
-  width:100%;
+  top:0; width:100%;
   background:rgba(0,0,0,.6);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
@@ -92,30 +81,23 @@ nav {
   gap:32px;
 }
 .nav-links a {
-  position:relative;
   color:#aaa;
   text-decoration:none;
-  transition:color .35s ease;
+  position:relative;
+  transition:.35s ease;
 }
 .nav-links a::after {
   content:'';
   position:absolute;
-  left:50%;
-  bottom:-6px;
-  width:0;
-  height:2px;
+  left:50%; bottom:-6px;
+  width:0; height:2px;
   background:#fff;
-  border-radius:4px;
   transition:.4s ease;
   transform:translateX(-50%);
 }
 .nav-links a:hover { color:#fff; }
 .nav-links a:hover::after { width:100%; }
-.support {
-  justify-self:end;
-  font-size:.85rem;
-  color:#777;
-}
+.support { justify-self:end; font-size:.85rem; color:#777; }
 
 /* HEADER */
 header {
@@ -128,12 +110,7 @@ header {
 }
 h1 { font-size:3.1rem; }
 h2 { font-size:2.2rem; margin-bottom:12px; }
-p {
-  color:var(--dim);
-  max-width:760px;
-  margin:16px auto;
-  line-height:1.65;
-}
+p { color:var(--dim); max-width:760px; margin:16px auto; }
 
 /* BUTTONS */
 .buttons {
@@ -161,33 +138,23 @@ p {
   transform:translateY(-3px);
   box-shadow:0 14px 40px rgba(255,255,255,.18);
 }
-.btn:active { transform:scale(.96); }
 
 /* SECTIONS */
-section {
-  padding:95px 20px;
-  text-align:center;
-}
+section { padding:95px 20px; text-align:center; }
 
-/* PARALLAX CARDS */
-.grid, .credits {
-  perspective:1200px;
-}
+/* CARDS + PARALLAX */
+.grid, .credits { perspective:1200px; }
 
 .card, .credit {
-  position:relative;
   background:var(--soft);
   border:1px solid var(--border);
   border-radius:20px;
   padding:36px;
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
   transform-style:preserve-3d;
+  transition:transform .2s ease, box-shadow .2s ease;
+  position:relative;
   overflow:hidden;
 }
-
-/* INNER GLOW */
 .card::before,
 .credit::before {
   content:'';
@@ -198,9 +165,7 @@ section {
   transition:.3s ease;
 }
 .card:hover::before,
-.credit:hover::before {
-  opacity:.6;
-}
+.credit:hover::before { opacity:.6; }
 
 .grid {
   max-width:1100px;
@@ -210,7 +175,7 @@ section {
   gap:30px;
 }
 
-/* STATUS */
+/* STATUS SECTION */
 .status-box {
   max-width:680px;
   margin:44px auto 0;
@@ -222,23 +187,27 @@ section {
 .status-item {
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:14px 0;
   border-bottom:1px solid var(--border);
 }
-.status-item:last-child{border-bottom:none;}
+.status-item:last-child { border-bottom:none; }
+
 .status-left {
   display:flex;
+  align-items:center;
   gap:12px;
+  font-weight:500;
 }
 .status-dot {
   width:11px;
   height:11px;
   border-radius:50%;
 }
-.status-green{background:#2ecc71;}
-.status-yellow{background:#f1c40f;}
-.status-red{background:#e74c3c;}
-.status-text { color:#777; }
+.status-green { background:#2ecc71; }
+.status-yellow { background:#f1c40f; }
+.status-red { background:#e74c3c; }
+.status-text { color:#777; font-size:.9rem; }
 
 /* CREDITS */
 .credits {
@@ -270,10 +239,7 @@ footer {
   transform:translateY(30px);
   transition:.8s ease;
 }
-.reveal.active {
-  opacity:1;
-  transform:none;
-}
+.reveal.active { opacity:1; transform:none; }
 </style>
 </head>
 
@@ -289,7 +255,6 @@ footer {
       <a href="#services">Services</a>
       <a href="#status">Status</a>
       <a href="#credits">Credits</a>
-      <a href="#legal">Legal</a>
     </div>
     <div class="support">legal@flagzstore.xyz</div>
   </div>
@@ -317,6 +282,26 @@ footer {
   </div>
 </section>
 
+<section id="status" class="reveal">
+  <h2>System Status</h2>
+  <p>Live availability of our services.</p>
+
+  <div class="status-box">
+    <div class="status-item">
+      <div class="status-left"><span id="shop-dot" class="status-dot"></span>Shop</div>
+      <span id="shop-text" class="status-text"></span>
+    </div>
+    <div class="status-item">
+      <div class="status-left"><span id="discord-dot" class="status-dot"></span>Discord</div>
+      <span id="discord-text" class="status-text"></span>
+    </div>
+    <div class="status-item">
+      <div class="status-left"><span id="website-dot" class="status-dot"></span>Website</div>
+      <span id="website-text" class="status-text"></span>
+    </div>
+  </div>
+</section>
+
 <section id="credits" class="reveal">
   <h2>Credits</h2>
   <div class="credits">
@@ -333,11 +318,6 @@ footer {
   </div>
 </section>
 
-<section id="legal" class="reveal">
-  <h2>Legal</h2>
-  <p>Not affiliated with Discord Inc. If any issues please contact: legal@flagzstore.xyz</p>
-</section>
-
 <footer>© 2025 Flagz Store</footer>
 
 <script>
@@ -349,6 +329,22 @@ const obs=new IntersectionObserver(e=>{
   e.forEach(x=>x.isIntersecting&&x.target.classList.add('active'));
 },{threshold:.2});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+/* STATUS CONFIG (EDIT THIS) */
+const statusConfig = {
+  shop:    { color:'green',  text:'Operational' },
+  discord: { color:'yellow', text:'Maintenance' },
+  website: { color:'green',  text:'Online' }
+};
+
+function applyStatus(name) {
+  document.getElementById(`${name}-dot`)
+    .classList.add(`status-${statusConfig[name].color}`);
+  document.getElementById(`${name}-text`)
+    .textContent = statusConfig[name].text;
+}
+
+Object.keys(statusConfig).forEach(applyStatus);
 
 /* MOUSE PARALLAX */
 document.querySelectorAll('.card,.credit').forEach(el=>{
